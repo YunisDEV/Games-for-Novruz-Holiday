@@ -1,20 +1,24 @@
 
-const SCL = 20; // size of each tile
-var wOs, hOs; // width over SCL, height over SCL
+const SCL = 30;
+var wOs, hOs;
 
 var snake;
 
-var score; // "length"
+var score;
 var food;
 let sekerbura;
+let qogal;
+let paxlava;
+let randomnumfood;
 function preload(){
-  sekerbura = loadImage('sb.png');
+  sekerbura = loadImage('sekerbura.png');
+  qogal = loadImage('qogal.png');
+  paxlava = loadImage('paxlava.png');
 }
 function setup() {
 
   createCanvas(500, 500);
 
-	// initialize relative to SCL
   wOs = width / SCL;
   hOs = height / SCL;
 
@@ -40,7 +44,7 @@ function draw() {
 		if (snake.update(food)) { // snake at food
 
 			food = newFood();
-			score++;
+			score+=randomnumfood;
 		}
 		snake.draw();
 	} else {
@@ -52,8 +56,20 @@ function draw() {
   // fill(random(255), 0, random(255));
   // rect(food.x * SCL, food.y * SCL, SCL, SCL);
   // rect(x, y, w, h)
-  image(sekerbura, food.x * SCL, food.y * SCL, SCL, SCL);
-
+  randomnumfood = Math.floor(random(1,4));
+  console.log(randomnumfood);
+//image(sekerbura, food.x * SCL, food.y * SCL, SCL, SCL)
+switch(randomnumfood){
+  case 1:
+    image(qogal, food.x * SCL, food.y * SCL, SCL, SCL);
+    break;
+  case 2:
+    image(sekerbura, food.x * SCL, food.y * SCL, SCL, SCL);
+    break;
+  case 3:
+    image(paxlava, food.x * SCL, food.y * SCL, SCL, SCL);
+    break;
+}
   /* draw score */
   text(score, SCL, height - SCL);
 }
