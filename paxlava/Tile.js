@@ -3,11 +3,12 @@
 	*/
 const TYPES = [
 	"BARRIER",
-	"BISCUIT",
+	"PAXLAVA",
 	"OPEN",
-	"CHERRY",
+	"SEKERBURA",
 	"GHOST",
-	"PACMAN"
+  "PACMAN",
+  "QOGAL"
 ];
 
 const TILE_SPEED = 0.2; // speed of tile's movement
@@ -81,13 +82,18 @@ Tile.prototype.update = function() {
 
       switch (destinationTile.type) {
 
-        case "BISCUIT":
+        case "PAXLAVA":
           score++;	// worth 1 point
           destinationTile.intact = false;
           break;
 
-        case "CHERRY":
+        case "SEKERBURA":
           score += 10;	// worth 10 points
+          destinationTile.intact = false;
+          break;
+
+        case "QOGAL":
+          score +=5;
           destinationTile.intact = false;
           break;
       }
@@ -155,23 +161,27 @@ Tile.prototype.draw = function() {
       rect(this.x * SIZE, this.y * SIZE, SIZE, SIZE);
       break;
 
-    case "BISCUIT":
+    case "PAXLAVA":
 
       // ellipseMode(CORNER);
       // noStroke();
       // fill(255);
       // ellipse(this.x * SIZE + THIRD_SIZE, this.y * SIZE + THIRD_SIZE, THIRD_SIZE);
-      image(paxlava1, this.x * SIZE + THIRD_SIZE, this.y * SIZE + THIRD_SIZE, THIRD_SIZE, THIRD_SIZE);
+      image(paxlava, this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE, HALF_SIZE, HALF_SIZE);
+      break;
+    
+    case "QOGAL":
+      image(qogal, this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE, HALF_SIZE, HALF_SIZE);
       break;
 
-    case "CHERRY":
+    case "SEKERBURA":
 
       // ellipseMode(CORNER);
       // stroke(255);
       // strokeWeight(2);
       // fill("#FF2222");
       // ellipse(this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE, HALF_SIZE);
-      image(paxlava2, this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE, HALF_SIZE, HALF_SIZE);
+      image(sekerbura, this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE, HALF_SIZE, HALF_SIZE);
       break;
 
     case "GHOST":

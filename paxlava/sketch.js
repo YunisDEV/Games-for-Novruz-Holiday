@@ -11,7 +11,7 @@ const FIELD = [
   "0,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,0",
   "0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,3,0,0,0",
   "0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0",
-  "0,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
+  "0,1,1,3,1,1,1,6,1,1,1,1,1,1,1,1,1,1,1,0",
   "0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0",
   "0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0",
   "0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
@@ -35,11 +35,13 @@ var ghosts = [];
 var pacman;
 var score;
 var endScore;
-let paxlava1;
-let paxlava2;
+let paxlava;
+let sekerbura;
+let qogal;
 function preload(){
-  paxlava1 = loadImage('paxlava1.png');
-  paxlava2 = loadImage('paxlava2.png')
+  qogal = loadImage('qogal.png');
+  paxlava = loadImage('paxlava.png');
+  sekerbura = loadImage('sekerbura.png');
 }
 
 
@@ -172,15 +174,20 @@ function generateField() {
           f.push(tile);
           break;
 
-        case "CHERRY":
+        case "SEKERBURA":
           endScore += 10; // worth 10 points
           f.push(tile);
           break;
 
-        case "BISCUIT":
+        case "PAXLAVA":
           endScore++; // worth 1 point
           f.push(tile);
           break;
+        case "QOGAL":
+          endScore+=5; // worth 1 point
+          f.push(tile);
+          break;
+        
       }
 
     }
