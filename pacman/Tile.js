@@ -1,6 +1,4 @@
-/**
-	* all different types of tiles
-	*/
+
 const TYPES = [
 	"BARRIER",
 	"PAXLAVA",
@@ -11,20 +9,16 @@ const TYPES = [
   "QOGAL"
 ];
 
-const TILE_SPEED = 0.2; // speed of tile's movement
+const TILE_SPEED = 0.2;
 
-const DIMENSIONS = 20;	// size of field
+const DIMENSIONS = 20;
 
-const SIZE = 25;	// size of each tile
+const SIZE = 25;	
 const HALF_SIZE = SIZE / 2;
 const THIRD_SIZE = SIZE / 3;
 const QUARTER_SIZE = SIZE / 4;
 
-/**
- * makes up the field
- * tiles can be moved
- * tiles can restrict movement
- */
+
 function Tile(x, y, type, behavior) {
 
   this.x = x;
@@ -38,18 +32,14 @@ function Tile(x, y, type, behavior) {
 
   this.speed = 0.2;
 
-  this.behavior = behavior; // GHOSTs only;	0 = agressive, 1 = nonchalant
+  this.behavior = behavior; 
 }
 
-/**
- *	handles movement, eating, and AI
- */
 Tile.prototype.update = function() {
 
-  if (!this.intact) // no need to update
+  if (!this.intact) 
     return;
 
-  /* movement */
   if (this.moving) {
 
 		console.log(this.x, this.y, "before lerp");
@@ -63,19 +53,17 @@ Tile.prototype.update = function() {
 		var distanceX = Math.abs(this.x - this.destination.x);
 		var distanceY = Math.abs(this.y - this.destination.y);
 
-    if (distanceX < 0.1 && distanceY < 0.1) { // round to the nearest position
+    if (distanceX < 0.1 && distanceY < 0.1) { 
 
       this.x = this.destination.x;
       this.y = this.destination.y;
 
-      this.moving = false; // done moving
+      this.moving = false; 
     }
   }
 
-  /* eating */
-  if (this.type == "PACMAN") { // only PACMAN may eat!
+  if (this.type == "PACMAN") { 
 
-		// Tile to which Pac-man is moving
     var destinationTile = getTile(Math.floor(this.x), Math.floor(this.y));
 
     if (destinationTile.intact) {
@@ -83,12 +71,12 @@ Tile.prototype.update = function() {
       switch (destinationTile.type) {
 
         case "PAXLAVA":
-          score++;	// worth 1 point
+          score++;	
           destinationTile.intact = false;
           break;
 
         case "SEKERBURA":
-          score += 10;	// worth 10 points
+          score += 10;	
           destinationTile.intact = false;
           break;
 
@@ -99,7 +87,7 @@ Tile.prototype.update = function() {
       }
     }
 
-    if (score == endScore) // check if Pac-man has won
+    if (score == endScore) 
       endGame(true);
 
   } else if (this.type == "GHOST") {
@@ -107,14 +95,13 @@ Tile.prototype.update = function() {
 
 		var distance = dist(pacman.x, pacman.y, this.x, this.y);
 
-    if (distance < 0.3) // if Pac-man has touched a GHOST
+    if (distance < 0.3) 
       endGame(false);
 
 		/* movement */
-    if (this.moving) // can't move multiple times at once
+    if (this.moving) 
       return;
 
-		/* relative possible movements */
     var possibleMoves = [
 
       getTile(this.x - 1, this.y),	// left
@@ -123,7 +110,6 @@ Tile.prototype.update = function() {
       getTile(this.x, this.y + 1),	// bottom
     ];
 
-    /* sort by distance from Pac-man */
     possibleMoves.sort(function (a, b) {
 
       var aD = dist(a.x, a.y, pacman.x, pacman.y);
@@ -132,16 +118,15 @@ Tile.prototype.update = function() {
       return aD - bD;
     });
 
-    if (this.behavior === 0) {	// if they're agressive
+    if (this.behavior === 0) {
 
       for (var i = 0; i < possibleMoves.length; i++) {
 
-        if (this.move(possibleMoves[i].x, possibleMoves[i].y, false)) { // attempt to move
+        if (this.move(possibleMoves[i].x, possibleMoves[i].y, false)) {
           break;
         }
       }
     } else {
-			// move nonchalantly
       var index = Math.floor(random(4));
       this.move(possibleMoves[index].x, possibleMoves[index].y, false);
     }
@@ -163,10 +148,6 @@ Tile.prototype.draw = function() {
 
     case "PAXLAVA":
 
-      // ellipseMode(CORNER);
-      // noStroke();
-      // fill(255);
-      // ellipse(this.x * SIZE + THIRD_SIZE, this.y * SIZE + THIRD_SIZE, THIRD_SIZE);
       image(paxlava, this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE, HALF_SIZE, HALF_SIZE);
       break;
     
@@ -176,11 +157,6 @@ Tile.prototype.draw = function() {
 
     case "SEKERBURA":
 
-      // ellipseMode(CORNER);
-      // stroke(255);
-      // strokeWeight(2);
-      // fill("#FF2222");
-      // ellipse(this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE, HALF_SIZE);
       image(sekerbura, this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE, HALF_SIZE, HALF_SIZE);
       break;
 
@@ -190,7 +166,6 @@ Tile.prototype.draw = function() {
       stroke(0);
       strokeWeight(1);
 
-			/* draw a triangle */
       beginShape();
       vertex(this.x * SIZE + HALF_SIZE, this.y * SIZE + QUARTER_SIZE);
       vertex(this.x * SIZE + QUARTER_SIZE, this.y * SIZE + (QUARTER_SIZE * 3));
@@ -211,15 +186,12 @@ Tile.prototype.draw = function() {
 
 };
 
-/**
- * calculates movement for use within update function
- * returns whether it's a valid move or not
- */
+
 Tile.prototype.move = function(x, y, relative) {
 
   var destinationX, destinationY;
 
-  if (relative) { // relative to the tile
+  if (relative) { 
 
     destinationX = this.x + x;
     destinationY = this.y + y;
@@ -229,26 +201,24 @@ Tile.prototype.move = function(x, y, relative) {
     destinationY = y;
   }
 
-  if (this.moving) // no need to recalculate everything
+  if (this.moving) 
     return false;
 
   var destinationTile = getTile(destinationX, destinationY);
 
   var type = destinationTile.type;
 
-  if ((type == "BARRIER" && this.type != "BARRIER") || 	// only certain tiles may
-      (type == "GHOST" && this.type == "GHOST")) 				// move to other certain tiles
+  if ((type == "BARRIER" && this.type != "BARRIER") || 
+      (type == "GHOST" && this.type == "GHOST")) 				
     return false;
 
-  this.moving = true; // begin movement next update
+  this.moving = true;
 	this.destination = createVector(destinationX, destinationY);
 
   return true;
 };
 
-/**
- * returns tile with coordinates (x, y)
- */
+
 function getTile(x, y) {
 
   return field[y * DIMENSIONS + x];

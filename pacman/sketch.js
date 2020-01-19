@@ -1,10 +1,11 @@
 
 /** 2D map of the field;
  * 0 = BARRIER
- * 1 = BISCUIT
- * 3 = CHERRY
+ * 1 = PAXLAVA
+ * 3 = SEKERBURA
  * 4 = GHOST
  * 5 = PAC-MAN
+ * 6 = QOGAL
  */
 const FIELD = [
   "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -57,25 +58,21 @@ function draw() {
 
   background(51);
 
-	drawHUD(); // field & score
+	drawHUD();
 
-	/* update and draw ghosts */
   for (var j = 0; j < ghosts.length; j++) {
 
     ghosts[j].update();
     ghosts[j].draw();
   }
 
-	/* update and draw Pac-man */
 	pacman.update();
 	pacman.draw();
 
-  handleInput(); // keyboard input
+  handleInput(); 
 }
 
-/**
- *	handles user input
- */
+
 function handleInput() {
 
   if (keyIsDown(UP_ARROW)) {
@@ -93,13 +90,9 @@ function handleInput() {
   }
 }
 
-/**
- * draws all tiles except types GHOST and PACMAN
- * draws score
- */
 function drawHUD() {
 
-	/* field */
+
 	for (var i = 0; i < field.length; i++) {
 
 		if (field[i].intact) {
@@ -109,7 +102,7 @@ function drawHUD() {
 		}
 	}
 
-	/* score */
+
 	noStroke();
   fill(255);
   textSize(30);
@@ -138,20 +131,15 @@ function endGame(won) {
   noLoop();
 }
 
-/**
- *	populates field and ghost arrays
- * initializes Pac-man
- * based upon FIELD constant
- */
 function generateField() {
 
-  var f = []; // returning array
+  var f = []; 
 
-  var ghostId = 0; // handling behavior of ghost
-  for (var i = 0; i < FIELD.length; i++) { // loop through each string
+  var ghostId = 0; 
+  for (var i = 0; i < FIELD.length; i++) { 
 
     var row = FIELD[i].split(",");
-    for (var j = 0; j < row.length; j++) { // loop through numbers in string
+    for (var j = 0; j < row.length; j++) { 
 
       var type = TYPES[row[j]];
       var tile = new Tile(j, i, type, -1);
@@ -164,7 +152,7 @@ function generateField() {
           break;
 
         case "GHOST":
-					var behavior = (ghostId % 2); // every other ghost will be agressive
+					var behavior = (ghostId % 2); 
           ghosts.push(new Tile(j, i, type, behavior));
           f.push(new Tile(j, i, "OPEN"));
           ghostId++;
@@ -175,16 +163,16 @@ function generateField() {
           break;
 
         case "SEKERBURA":
-          endScore += 10; // worth 10 points
+          endScore += 10; 
           f.push(tile);
           break;
 
         case "PAXLAVA":
-          endScore++; // worth 1 point
+          endScore++; 
           f.push(tile);
           break;
         case "QOGAL":
-          endScore+=5; // worth 1 point
+          endScore+=5; 
           f.push(tile);
           break;
         

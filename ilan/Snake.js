@@ -22,7 +22,6 @@ function setup() {
   wOs = width / SCL;
   hOs = height / SCL;
 
-	// push snake the middle
 	snake = new TileSnake(Math.floor(wOs / 2), Math.floor(hOs / 2));
 
   score = 0;
@@ -38,10 +37,9 @@ function draw() {
 
   background(51);
 
-	/* handle snake */
 	if (snake.alive) {
 
-		if (snake.update(food)) { // snake at food
+		if (snake.update(food)) {
 
 			food = newFood();
 			score+=randomnumfood;
@@ -52,13 +50,9 @@ function draw() {
 		gameOver();
 	}
 
-	/* draw food */
-  // fill(random(255), 0, random(255));
-  // rect(food.x * SCL, food.y * SCL, SCL, SCL);
-  // rect(x, y, w, h)
+
   randomnumfood = Math.floor(random(1,4));
   console.log(randomnumfood);
-//image(sekerbura, food.x * SCL, food.y * SCL, SCL, SCL)
 switch(randomnumfood){
   case 1:
     image(qogal, food.x * SCL, food.y * SCL, SCL, SCL);
@@ -70,13 +64,9 @@ switch(randomnumfood){
     image(paxlava, food.x * SCL, food.y * SCL, SCL, SCL);
     break;
 }
-  /* draw score */
   text(score, SCL, height - SCL);
 }
 
-/**
- * stops game, displays end game
- */
 function gameOver() {
 
   noLoop();
@@ -86,9 +76,7 @@ function gameOver() {
   text("Yenidən başlamaq üçün F5'ə bas", width / 2, height / 2 + 50);
 }
 
-/**
- * returns food at a random position
- */
+
 function newFood() {
 
 	var x = Math.floor(random(wOs));
@@ -97,9 +85,7 @@ function newFood() {
   return createVector(x, y);
 }
 
-/**
- * handle user input
- */
+
 function keyPressed() {
 
   switch (keyCode) {
