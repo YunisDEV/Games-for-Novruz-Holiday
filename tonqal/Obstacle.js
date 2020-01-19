@@ -34,5 +34,5 @@ Obstacle.prototype.hits = function(dino) {
 
 	var distance = dist(xCenter, yCenter, dino.x, dino.y);
 
-	return (distance < minimumDistance);
+	return (distance < minimumDistance-5);
 };

@@ -174,12 +174,13 @@ Tile.prototype.draw = function() {
       break;
 
     case "PACMAN":
-
-      ellipseMode(CORNER);
-      stroke("#FFFF00");
-      strokeWeight(5);
-      fill("#FFFF33");
-      ellipse(this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE, HALF_SIZE);
+      imageMode(CORNER);
+      // ellipseMode(CORNER);
+      // stroke("#FFFF00");
+      // strokeWeight(5);
+      // fill("#FFFF33");
+      // ellipse(this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE, HALF_SIZE);
+      image(pac, this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE,HALF_SIZE,HALF_SIZE);
       break;
 
   }
