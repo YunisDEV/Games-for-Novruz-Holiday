@@ -7,6 +7,14 @@ var obstacles = [];
 
 var dino;
 var dinoImg;
+let hearth;
+let boy;
+function preload(){
+  hearth = loadImage("hearth.png");
+  boy = loadImage("boy1.png");
+}
+
+
 function setup() {
   createCanvas(800, 400);
 

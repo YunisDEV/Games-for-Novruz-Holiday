@@ -1,6 +1,6 @@
 function TRex(x, y, radius) {
 
-	this.x = x+20;
+	this.x = x;
 	this.y = y;
 
 	this.yVelocity = 0;
@@ -15,26 +15,37 @@ function TRex(x, y, radius) {
 	*/
 TRex.prototype.update = function(platform) {
 
-	var bottom = this.y + this.radius;
-	var nextBottom = bottom + this.yVelocity;
+	var bottom = this.y + this.radius; // bottom pixel of circle
+	var nextBottom = bottom + this.yVelocity; // calculate next frame's bottom
 
-  if (bottom <= platform && nextBottom >= platform) {
+  if (bottom <= platform && nextBottom >= platform) { // next frame will be on platform
 
-		this.yVelocity = 0;
-		this.y = platform - this.radius;
+		this.yVelocity = 0; // reset velocity
+		this.y = platform - this.radius; // don't go past platform
 		this.onGround = true;
-  } else if (platform - bottom > 1) {
+  } else if (platform - bottom > 1) { // nowhere near platform
 
-		this.yVelocity += this.speed;
+		this.yVelocity += this.speed; // increase velocity
 		this.onGround = false;
   }
+
+	/* movement */
 	this.y += this.yVelocity;
 };
+
+/**
+	* make the dino jump
+	*/
 TRex.prototype.jump = function() {
 
 	this.yVelocity = -(this.radius * 0.7); // jump
 };
 
 TRex.prototype.draw = function() {
-	ellipse(this.x, this.y, this.radius * 2);
+
+//  fill('#999999');
+// 	stroke(255);
+	// strokeWeight(2);
+	//ellipse(this.x, this.y, this.radius * 2);
+	image(boy, this.x, this.y-30, this.radius*2.5, this.radius*2.5);
 };

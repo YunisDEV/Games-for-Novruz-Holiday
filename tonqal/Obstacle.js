@@ -1,9 +1,9 @@
 function Obstacle(x, size, horizon, color) {
 
   this.x = x;
-	this.y = horizon - size;
+	this.y = horizon - size+10;
 
-  this.size = size;
+  this.size = size-10;
   this.color = color;
 
 	this.onScreen = true;
@@ -17,10 +17,11 @@ Obstacle.prototype.update = function(speed) {
 
 Obstacle.prototype.draw = function() {
 
-	fill(this.color);
-	stroke(255);
-	strokeWeight(2);
-	rect(this.x, this.y, this.size, this.size);
+	image(hearth, this.x, this.y, this.size, this.size);
+	// fill(this.color);
+	// stroke(255);
+	// strokeWeight(2);
+	// rect(this.x, this.y, this.size, this.size);
 };
 
 Obstacle.prototype.hits = function(dino) {
