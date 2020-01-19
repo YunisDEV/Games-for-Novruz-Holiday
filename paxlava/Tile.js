@@ -180,7 +180,7 @@ Tile.prototype.draw = function() {
       // strokeWeight(5);
       // fill("#FFFF33");
       // ellipse(this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE, HALF_SIZE);
-      image(pac, this.x * SIZE + QUARTER_SIZE, this.y * SIZE + QUARTER_SIZE,HALF_SIZE,HALF_SIZE);
+      image(pac, this.x * SIZE + QUARTER_SIZE-5, (this.y) * SIZE -5 + QUARTER_SIZE,HALF_SIZE+15,HALF_SIZE+10);
       break;
 
   }
