@@ -1,24 +1,35 @@
-body{
-    margin:0;
-    padding:0;
+body {
+  margin: 0;
+  background: linear-gradient(145deg, #36d27f, #2db06b);
+  padding: 0;
 }
-*{
-    box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
-section{
-height: 40vh;
-    background:#36d27f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+section.head {
+  height: 40vh;
+  display: flex;
+  width: 100%;
+  float: left;
+  justify-content: center;
+  align-items: center;
 }
-section div{
-    width:50%;
-    height: 20vh;
-    border-radius: 50px;
-background: linear-gradient(145deg, #36d27f, #2db06b);
-box-shadow: 30px 30px 60px #2ba765, 
-            -30px -30px 60px #3ae189;
-            transition: 0.2s all ease-out;
+section.head div {
+  text-align: center;
+  align-items: center;
+  width: 50%;
+  color: #8bffc1;
+  font-size: 48px;
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 30px 30px 60px #2ba765, -30px -30px 60px #3ae189;
+  transition: 0.2s all ease-out;
+  text-shadow: 6px 6px 12px #2ba765, -6px -6px 12px #3ae189;
+  font-weight: 900;
+}
+.body{
+    width:100%;
+    float:left;
+    height: 60vh;
 }
