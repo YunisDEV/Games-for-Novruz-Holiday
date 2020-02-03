@@ -25,25 +25,19 @@ TileSnake.prototype.update = function(food) {
 	}
 
 
-	if (this.body[0].x > wOs) {
-
-		this.body[0].x = 0;
-	} else if (this.body[0].x < 0) {
-
-		this.body[0].x = wOs;
-	} else if (this.body[0].y > hOs) {
-
-		this.body[0].y = 0;
-	} else if (this.body[0].y < 0) {
-
-		this.body[0].y = hOs;
+	if (this.body[0].x > wOs || this.body[0].x < 0 || this.body[0].y > hOs || this.body[0].y < 0) {
+		gameOver();
 	}
 
-	if (this.body[0].x == food.x && this.body[0].y == food.y) { 
+	if (this.body[0].x == food.x && this.body[0].y == food.y && foodStatus==true) { 
   
 
     return true;
-  } else {
+  } 
+  else if(this.body[0].x == food.x && this.body[0].y == food.y && foodStatus==false){
+	gameOver();
+  }
+  else {
 
     this.body.splice(this.body.length - 1, 1);
 		return false;
@@ -63,8 +57,10 @@ TileSnake.prototype.draw = function() {
 TileSnake.prototype.direct = function(direction) {
 
 	
-	if (direction.x != -this.direction.x &&	direction.y != -this.direction.y)
+	if ((direction.x != -this.direction.x &&	direction.y != -this.direction.y)){
+		console.log(this.body[0].x);
 		this.direction = direction;
+	}
 };
 
 

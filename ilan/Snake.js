@@ -1,9 +1,8 @@
-
 const SCL = 30;
 var wOs, hOs;
 
 var snake;
-
+var foodStatus;
 var score;
 var food;
 let sekerbura;
@@ -14,6 +13,7 @@ function preload(){
   sekerbura = loadImage('sekerbura.png');
   qogal = loadImage('qogal.png');
   paxlava = loadImage('paxlava.png');
+  bomb = loadImage('bomb.png');
 }
 function setup() {
 
@@ -51,17 +51,24 @@ function draw() {
 	}
 
 
-  randomnumfood = Math.floor(random(1,4));
+  randomnumfood = Math.floor(random(1,5));
   console.log(randomnumfood);
 switch(randomnumfood){
   case 1:
     image(qogal, food.x * SCL, food.y * SCL, SCL, SCL);
+    foodStatus=true;
     break;
   case 2:
     image(sekerbura, food.x * SCL, food.y * SCL, SCL, SCL);
+    foodStatus=true;
     break;
   case 3:
     image(paxlava, food.x * SCL, food.y * SCL, SCL, SCL);
+    foodStatus=true;
+    break;
+  case 4:
+    image(bomb, food.x * SCL, food.y * SCL, SCL, SCL);
+    foodStatus=false;
     break;
 }
   text(score, SCL, height - SCL);
