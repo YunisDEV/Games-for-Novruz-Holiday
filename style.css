@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: linear-gradient(145deg, #36d27f, #2db06b);
+  background:#36d27f;
   padding: 0;
 }
 * {
@@ -29,7 +29,50 @@ section.head div {
   font-weight: 900;
 }
 .body{
+    padding-top: 10vh;
     width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     float:left;
-    height: 60vh;
+    height: 50vh;
+}
+.game-box{
+  width:33.33333%;
+  float:left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game-card{
+  float:left;
+  text-align:center;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 30px 30px 60px #2ba765, -30px -30px 60px #3ae189;
+  width:60%;
+  font-size:40px;
+  color: #8bffc1;
+  font-weight: bold;
+}
+.game-card img{
+  border-radius: 20px;
+  width:100%;
+  opacity: 0.6;
+}
+.game-card button{
+  background:#249c5c;
+  outline:none;
+  color: #8bffc1;
+  font-weight: bold;
+  width:50%;
+  border:none;
+  font-size: 20px;
+  border-radius: 5px;
+  height: 5vh;
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+  color:#8bffc1;
 }
