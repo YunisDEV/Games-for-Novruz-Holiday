@@ -17,7 +17,7 @@ function preload(){
 }
 function setup() {
 
-  createCanvas(screen.width/2-20, screen.height-300);
+  createCanvas(screen.width/2-20, screen.height-200);
 
   wOs = width / SCL;
   hOs = height / SCL;

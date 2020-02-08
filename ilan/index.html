@@ -4,6 +4,7 @@
 	  <script type="text/javascript" src="p5min.js"></script>
 	  <script type="text/javascript" src="Snake.js"></script>
 	  <script type="text/javascript" src="TileSnake.js"></script>
+	  
 	  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	  <link rel="stylesheet" href="../style.css">
 	  <style>
@@ -18,27 +19,34 @@
 			 	float: right;
 		  }
 		  canvas{
-  				box-shadow: 30px 30px 60px #2ba765;
+  				box-shadow: 10px 10px 10px #2ba765;
 				border-radius: 5px;
 				float: right;
 				position: absolute;
 			  	left:10px;
-				top:75px;
+				top:50px;
 		  }
 		  form{
-			  
+  				box-shadow: 10px 10px 10px #2ba765;
+				position: absolute;
+				align-items: center;
+				justify-content: center;
+				border-radius: 5px;
+			  	right:10px;
+				top:50px;
+				background-color: aliceblue;
 		  }
 	  </style>
 	  <title>Novruz &mdash; İlan</title>
 	</head>
 	<body>
 		<div class="body">
-			<form action="./submit.php" method="POST">
+			<form id="submitScoreForm" action="./submit.php" method="POST">
 				
 			</form>
 		</div>
 		<script>
-
+			document.querySelector('form#submitScoreForm').setAttribute('style',`width:${screen.width/2-20}px!important;height:${screen.height-200}px!important;`);
 		</script>
 	</body>
 </html>
