@@ -51,7 +51,7 @@ function draw() {
 	}
 
 
-  randomnumfood = Math.floor(random(1,5));
+  randomnumfood = Math.floor(random(1,4));
   console.log(randomnumfood);
 switch(randomnumfood){
   case 1:

@@ -54,6 +54,7 @@ section.head div {
   font-size:40px;
   color: #8bffc1;
   font-weight: bold;
+  transition: 0.3s all ease-out;
 }
 .game-card img{
   border-radius: 20px;
