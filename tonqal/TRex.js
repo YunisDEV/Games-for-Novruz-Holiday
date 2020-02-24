@@ -34,6 +34,6 @@ TRex.prototype.jump = function() {
 	this.yVelocity = -(this.radius * 0.7);
 };
 
-TRex.prototype.draw = function() {
-	image(boy.p1, this.x, this.y-30, this.radius*2.5-10, this.radius*2.5);
+TRex.prototype.draw = function(pic) {	
+	image(pic, this.x, this.y-30, this.radius*2.5-10, this.radius*2.5);
 };

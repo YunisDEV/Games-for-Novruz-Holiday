@@ -9,6 +9,10 @@ var dino;
 var dinoImg;
 let hearth;
 let boy;
+let change = 1;
+setInterval(function(){
+  change++;
+},1000)
 function preload(){
   hearth = loadImage("hearth.png");
   boy = {
@@ -58,8 +62,7 @@ function drawHUD() {
 
 	noStroke();
   text("Xalınız: " + score, width / 2, 30);
-
-	dino.draw();
+  dino.draw(boy.p1);
 }
 
 function handleObstacles() {
