@@ -12,7 +12,7 @@ let boy;
 let change = 1;
 setInterval(function(){
   change++;
-},1000)
+},50)
 function preload(){
   hearth = loadImage("hearth.png");
   boy = {
@@ -62,7 +62,32 @@ function drawHUD() {
 
 	noStroke();
   text("Xalınız: " + score, width / 2, 30);
-  dino.draw(boy.p1);
+  switch(change%8){
+    case 0:
+      dino.draw(boy.p8);
+      break;
+    case 1:
+      dino.draw(boy.p1);
+      break;
+    case 2:
+      dino.draw(boy.p2);
+      break;
+    case 3:
+      dino.draw(boy.p3);
+      break;
+    case 4:
+      dino.draw(boy.p4);
+      break;
+    case 5:
+      dino.draw(boy.p5);
+      break;
+    case 6:
+      dino.draw(boy.p6);
+      break;
+    case 7:
+      dino.draw(boy.p7);
+      break;
+  }
 }
 
 function handleObstacles() {
