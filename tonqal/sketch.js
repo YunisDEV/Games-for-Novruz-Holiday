@@ -11,9 +11,17 @@ let hearth;
 let boy;
 function preload(){
   hearth = loadImage("hearth.png");
-  boy = loadImage("boy1.png");
+  boy = {
+    p1:loadImage("./boy/1.png"),
+    p2:loadImage("./boy/2.png"),
+    p3:loadImage("./boy/3.png"),
+    p4:loadImage("./boy/4.png"),
+    p5:loadImage("./boy/5.png"),
+    p6:loadImage("./boy/6.png"),
+    p7:loadImage("./boy/7.png"),
+    p8:loadImage("./boy/8.png"),
+  };
 }
-
 
 function setup() {
   createCanvas(800, 400);

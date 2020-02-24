@@ -35,5 +35,5 @@ TRex.prototype.jump = function() {
 };
 
 TRex.prototype.draw = function() {
-	image(boy, this.x, this.y-30, this.radius*2.5, this.radius*2.5);
+	image(boy.p1, this.x, this.y-30, this.radius*2.5-10, this.radius*2.5);
 };
