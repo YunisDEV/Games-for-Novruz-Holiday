@@ -33,6 +33,45 @@
 				top:50px;
 				background-color: aliceblue;
 		  }
+		  /*Form*/
+		  form div{
+			  padding: 50px;
+		  }
+		  form div label{
+			  display: block;
+			  margin-bottom: 5px;
+			  color:grey;
+			  font-weight: bold;
+			  font-size: 50px;
+		  }
+		  form div input{
+			  display: block;
+			  margin-bottom: 50px;
+			  color:rgb(31, 31, 31);
+			  outline: none;
+			  border: 3px solid rgb(149, 149, 149);
+			  border-radius: 10px;
+			  padding:10px;
+			  font-size: 35px;
+			  transition: all ease-out 0.5s;
+		  }
+		  form div input:focus{
+			  border-color: #36d27f;
+		  }
+		  form div textarea{
+			  display: block;
+			  margin-bottom: 50px;
+			  color:rgb(31, 31, 31);
+			  outline: none;
+			  border: 3px solid rgb(149, 149, 149);
+			  border-radius: 10px;
+			  padding:10px;
+			  font-size: 35px;
+			  transition: all ease-out 0.5s;
+		  }
+		  form div textarea:focus{
+			  border-color: #36d27f;
+		  }
   </style>
   <script type="text/javascript" src="p5min.js"></script>
   <script type="text/javascript" src="sketch.js"></script>
@@ -41,9 +80,15 @@
 </head>
 <body>
   <div class="body">
-    <form id="submitScoreForm" action="./submit.php" method="POST">
-      
-    </form>
+    <form autocomplete="off" id="submitScoreForm" action="./submit.php" method="POST">
+		<div>
+			<label for="name">Adınız,Soyadınız</label>
+			<input spellcheck="false" type="text" id="form-name" name="name">
+
+			<label for="thoughts">Oyun haqda fikirləriniz</label>
+			<textarea style="resize: none;" name="thoughts" id="form-thoughts" cols="21" rows="5"></textarea>
+		</div>
+	</form>
   </div>
   <script>
     document.querySelector('form#submitScoreForm').setAttribute('style',`width:${screen.width/2-20}px!important;height:${screen.height-200}px!important;`);
