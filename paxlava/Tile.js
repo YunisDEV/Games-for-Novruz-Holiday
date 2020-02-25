@@ -13,7 +13,7 @@ const TILE_SPEED = 0.2;
 
 const DIMENSIONS = 20;
 
-const SIZE = 25;	
+const SIZE = 30;	
 const HALF_SIZE = SIZE / 2;
 const THIRD_SIZE = SIZE / 3;
 const QUARTER_SIZE = SIZE / 4;

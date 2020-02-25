@@ -49,7 +49,7 @@ function preload(){
 
 function setup() {
 
-  createCanvas(screen.width/2-20, screen.height-200);
+  createCanvas(screen.height-225, screen.height-200);
 
   score = 0;
   field = generateField();
@@ -108,7 +108,7 @@ function drawHUD() {
   fill(255);
   textSize(30);
   textAlign(LEFT);
-  text(score, 5, height - 5);
+  text("Score: "+score, 5,25);
 }
 
 function endGame(won) {
@@ -120,10 +120,8 @@ function endGame(won) {
   strokeWeight(5);
 
   if (won) {
-
     text("Qazandın!", width / 2, height / 2);
   } else {
-
     text("Uduzdun!", width / 2, height / 2);
   }
   textSize(30);
