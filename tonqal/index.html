@@ -3,7 +3,9 @@
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <title>Novruz &mdash; Tonqal</title>
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Raleway&display=swap" rel="stylesheet">
-	  
+  <script src= 
+  "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
+	  </script> 
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <link rel="stylesheet" href="../style.css">
   <style>
@@ -44,17 +46,17 @@
 			  margin-bottom: 5px;
 			  color:grey;
 			  font-weight: bold;
-			  font-size: 50px;
+			  font-size: 35px;
 		  }
 		  form div input{
 			  display: block;
-			  margin-bottom: 50px;
+			  margin-bottom: 30px;
 			  color:rgb(31, 31, 31);
 			  outline: none;
 			  border: 3px solid rgb(149, 149, 149);
 			  border-radius: 10px;
 			  padding:10px;
-			  font-size: 35px;
+			  font-size: 25px;
 			  transition: all ease-out 0.5s;
 		  }
 		  form div input:focus{
@@ -62,13 +64,13 @@
 		  }
 		  form div textarea{
 			  display: block;
-			  margin-bottom: 50px;
+			  margin-bottom: 30px;
 			  color:rgb(31, 31, 31);
 			  outline: none;
 			  border: 3px solid rgb(149, 149, 149);
 			  border-radius: 10px;
 			  padding:10px;
-			  font-size: 35px;
+			  font-size: 25px;
 			  transition: all ease-out 0.5s;
 		  }
 		  form div textarea:focus{
@@ -88,11 +90,18 @@
 			<input spellcheck="false" type="text" id="form-name" name="name">
 
 			<label for="thoughts">Oyun haqda fikirləriniz</label>
-			<textarea style="resize: none;" name="thoughts" id="form-thoughts" cols="21" rows="5"></textarea>
+			<textarea style="resize: none;" name="thoughts" id="form-thoughts" cols="21" rows="3"></textarea>
+
+			<label for="score">Xal</label>
+			<input type="number" name="form-score" name="score" id="score">
 		</div>
 	</form>
   </div>
   <script>
     document.querySelector('form#submitScoreForm').setAttribute('style',`width:${screen.width/2-20}px!important;height:${screen.height-200}px!important;`);
+	document.querySelector('#score').addEventListener("mousewheel",  
+                function(event){  
+                    this.blur()  
+                }); 
   </script>
 </body>

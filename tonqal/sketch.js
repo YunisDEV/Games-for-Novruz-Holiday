@@ -136,7 +136,7 @@ function keyPressed() {
 }
 
 function touchStarted(){
-	if(true){
+	if(true && dino.onGround){
 		dino.jump();
 	}
 }
