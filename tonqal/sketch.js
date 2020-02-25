@@ -28,7 +28,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(800, 400);
+  createCanvas(screen.width/2-20, screen.height-200);
 
   textAlign(CENTER);
 

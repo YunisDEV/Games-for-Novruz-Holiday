@@ -19,7 +19,7 @@ section.head div {
   text-align: center;
   align-items: center;
   width: 50%;
-  color: #8bffc1;
+  color: #c3ffdf;
   font-size: 48px;
   padding: 20px;
   border-radius: 50px;
@@ -52,7 +52,7 @@ section.head div {
   box-shadow: 30px 30px 60px #2ba765, -30px -30px 60px #3ae189;
   width:60%;
   font-size:40px;
-  color: #8bffc1;
+  color: #c3ffdf;
   font-weight: bold;
   transition: 0.3s all ease-out;
 }
