@@ -70,6 +70,21 @@
 		  form div textarea:focus{
 			  border-color: #36d27f;
 		  }
+		  button{
+			background:#249c5c;
+			outline:none;
+			color: #8bffc1;
+			font-weight: bold;
+			padding: 10px;
+			border:none;
+			font-size: 35px;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all ease-out 0.3s;
+		  }
+		  button:hover{
+			background:#1b7746;
+		  }
 		</style>
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 		<link rel="stylesheet" href="../style.css">
@@ -85,9 +100,14 @@
 			<div>
 				<label for="name">Adınız,Soyadınız</label>
 				<input spellcheck="false" type="text" id="form-name" name="name">
-
+	
 				<label for="thoughts">Oyun haqda fikirləriniz</label>
-				<textarea style="resize: none;" name="thoughts" id="form-thoughts" cols="21" rows="5"></textarea>
+				<textarea style="resize: none;" name="thoughts" id="form-thoughts" cols="21" rows="3"></textarea>
+	
+				<label for="score">Xal</label>
+				<input type="text" name="score" id="form-score" disabled>
+	
+				<button type="submit" id="submit">Göndər</button>
 			</div>
 		</form>
 	  </div>

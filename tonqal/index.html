@@ -3,9 +3,6 @@
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <title>Novruz &mdash; Tonqal</title>
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Raleway&display=swap" rel="stylesheet">
-  <script src= 
-  "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
-	  </script> 
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <link rel="stylesheet" href="../style.css">
   <style>
@@ -76,6 +73,22 @@
 		  form div textarea:focus{
 			  border-color: #36d27f;
 		  }
+		  button{
+			background:#249c5c;
+			outline:none;
+			color: #8bffc1;
+			font-weight: bold;
+			padding: 10px;
+			border:none;
+			font-size: 35px;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all ease-out 0.3s;
+		  }
+		  button:hover{
+			background:#1b7746;
+		  }
+
   </style>
   <script type="text/javascript" src="p5min.js"></script>
   <script type="text/javascript" src="sketch.js"></script>
@@ -93,15 +106,13 @@
 			<textarea style="resize: none;" name="thoughts" id="form-thoughts" cols="21" rows="3"></textarea>
 
 			<label for="score">Xal</label>
-			<input type="number" name="form-score" name="score" id="score">
+			<input type="text" name="score" id="form-score" disabled>
+
+			<button type="submit" id="submit">Göndər</button>
 		</div>
 	</form>
   </div>
   <script>
     document.querySelector('form#submitScoreForm').setAttribute('style',`width:${screen.width/2-20}px!important;height:${screen.height-200}px!important;`);
-	document.querySelector('#score').addEventListener("mousewheel",  
-                function(event){  
-                    this.blur()  
-                }); 
   </script>
 </body>
