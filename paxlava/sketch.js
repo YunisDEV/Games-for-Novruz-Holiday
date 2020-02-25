@@ -49,7 +49,7 @@ function preload(){
 
 function setup() {
 
-  createCanvas(screen.height-225, screen.height-200);
+  createCanvas(screen.height-225, screen.height-225);
 
   score = 0;
   field = generateField();
