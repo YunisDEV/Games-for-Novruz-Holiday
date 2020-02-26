@@ -82,6 +82,8 @@ function gameOver() {
   textSize(30);
   text("Yenidən başlamaq üçün F5'ə bas", width / 2, height / 2 + 50);
   document.querySelector('#form-score').value=score;  
+  document.querySelector('#aaa').innerHTML=score;  
+  
 }
 
 

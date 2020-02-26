@@ -99,28 +99,17 @@
 </head>
 <body>
   <div class="body">
-    <form
-      autocomplete="off"
-      id="submitScoreForm"
-      action="./submit.php"
-      method="POST"
-    >
+    <form autocomplete="off" id="submitScoreForm" action="./submit.php" method="POST">
       <div>
         <label for="name">Adınız,Soyadınız</label>
-        <input spellcheck="false" type="text" id="form-name" name="name" />
-
+        <input spellcheck="false" type="text" id="form-name" name="name">
+  
         <label for="thoughts">Oyun haqda fikirləriniz</label>
-        <textarea
-          style="resize: none;"
-          name="thoughts"
-          id="form-thoughts"
-          cols="21"
-          rows="3"
-        ></textarea>
-
+        <textarea style="resize: none;" name="thoughts" id="form-thoughts" cols="21" rows="3"></textarea>
+  
         <label for="score">Xal</label>
-        <input type="text" name="score" id="form-score" disabled />
-
+        <input type="text" name="score" id="form-score" style="display: none;">
+        <label id="aaa"></label>
         <button type="submit" id="submit">Göndər</button>
       </div>
     </form>

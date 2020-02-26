@@ -15,6 +15,7 @@ section.head {
   justify-content: center;
   align-items: center;
 }
+img[alt="www.000webhost.com"]{display:none;}
 section.head div {
   text-align: center;
   align-items: center;
