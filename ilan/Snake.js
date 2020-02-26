@@ -81,6 +81,7 @@ function gameOver() {
   text("Uduzdun!", width / 2, height / 2);
   textSize(30);
   text("Yenidən başlamaq üçün F5'ə bas", width / 2, height / 2 + 50);
+  document.querySelector('#form-score').value=score;  
 }
 
 

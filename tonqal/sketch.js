@@ -32,7 +32,7 @@ function setup() {
 
   textAlign(CENTER);
 
-  horizon = height - 40;
+  horizon = height - 100;
   
 	score = 0;
 	obstacleSpeed = 5;
@@ -44,7 +44,7 @@ function setup() {
 }
 
 function draw() {
-  background('rgba(255,255,255, 1)');
+  background('#87ceeb');
 
 	drawHUD();
 
@@ -56,10 +56,9 @@ function draw() {
 }
 function drawHUD() {
 
-  stroke(51);
-	strokeWeight(3);
+  stroke(11,102,35);
+  strokeWeight(200);
   line(0, horizon, width, horizon);
-
 	noStroke();
   text("Xalınız: " + score, width / 2, 30);
   switch(change%8){
@@ -149,5 +148,5 @@ function endGame() {
   text('UDUZDUN', width / 2, height / 2-15);
   textSize(20);
   text("Yenidən başlamaq üçün f5\'i bas", width / 2, height / 2 + 10);
-  document.querySelector('#form-score').value = score;
+  document.querySelector('#form-score').value = score-1;
 }
