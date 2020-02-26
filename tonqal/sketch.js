@@ -149,4 +149,5 @@ function endGame() {
   textSize(20);
   text("Yenidən başlamaq üçün f5\'i bas", width / 2, height / 2 + 10);
   document.querySelector('#form-score').value = score-1;
+  document.querySelector('#aaa').innerHTML = score-1;
 }
