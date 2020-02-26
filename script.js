@@ -3,7 +3,6 @@ var gci2 = document.querySelector("#nd img");
 var gci3 = document.querySelector("#rd img");
 const hover=(obj)=>{
     var id = obj.getAttribute("id");
-    console.log("a");
     switch(id){
         case "st":
             gci1.style.opacity = "1";
